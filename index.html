@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color:#ffffff !important;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Hobby Lobby — $500 Gift Card Reward</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background-color: #ffffff !important; color-scheme: light !important; }
+  body {
+    background-color: #ffffff !important;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex; justify-content: center;
+    color: #1a1a2e;
+  }
+  .page {
+    width: 100%; max-width: 480px;
+    background: #ffffff !important;
+    padding: 44px 22px 60px;
+  }
+
+  /* ── HEADER ── */
+  .brand-name {
+    font-size: 42px; font-weight: 900;
+    color: #8B1A1A !important;
+    text-align: center; margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .reward-amount {
+    font-size: 88px; font-weight: 900;
+    color: #8B1A1A !important;
+    text-align: center; line-height: 1;
+    margin-bottom: 8px; letter-spacing: -3px;
+  }
+  .reward-label {
+    font-size: 13px; font-weight: 800;
+    color: #8B1A1A !important;
+    text-align: center; letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 32px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .section-heading {
+    font-size: 26px; font-weight: 800;
+    color: #1a1a2e !important;
+    text-align: center; margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .section-sub {
+    font-size: 13px; color: #888888 !important;
+    text-align: center; line-height: 1.65;
+    margin-bottom: 28px; padding: 0 8px;
+  }
+
+  /* ── STEPS ── */
+  .steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .step {
+    background: #ffffff !important;
+    border: 1.5px solid #E8E8E8 !important;
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex; align-items: flex-start; gap: 18px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  }
+  .step-num {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: #8B1A1A !important;
+    color: #ffffff !important;
+    font-size: 20px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-size: 16px; font-weight: 700;
+    color: #1a1a2e !important; margin-bottom: 4px;
+  }
+  .step-desc { font-size: 13px; color: #888888 !important; line-height: 1.5; }
+
+  /* ── CTA ── */
+  .cta-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 20px;
+    background: #8B1A1A !important;
+    color: #ffffff !important;
+    border: none; border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px; font-weight: 800;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer;
+    box-shadow: 0 6px 24px rgba(139,26,26,0.32);
+    transition: opacity 0.18s, transform 0.1s;
+    margin-bottom: 40px;
+  }
+  .cta-btn:hover { opacity: 0.90; transform: translateY(-1px); }
+  .cta-btn:active { transform: translateY(0); }
+
+  /* ── FAQ ── */
+  .faq-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .faq-line { flex: 1; height: 1.5px; background: #E8C8C8 !important; }
+  .faq-title {
+    font-size: 18px; font-weight: 800;
+    color: #1a1a2e !important; white-space: nowrap;
+  }
+
+  .faq-card {
+    border: 1.5px solid #E8E8E8 !important;
+    border-radius: 14px; overflow: hidden;
+    background: #ffffff !important;
+  }
+  .faq-item { border-bottom: 1px solid #EEEEEE !important; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question {
+    width: 100%; background: #ffffff !important; border: none;
+    padding: 18px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: #1a1a2e !important;
+    cursor: pointer; text-align: left; gap: 12px;
+  }
+  .faq-chevron {
+    color: #8B1A1A !important; font-size: 14px;
+    flex-shrink: 0; transition: transform 0.25s;
+  }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    font-size: 13px; color: #666666 !important;
+    line-height: 1.65; padding: 0 20px;
+    background: #ffffff !important;
+  }
+  .faq-item.open .faq-answer { max-height: 200px; padding: 0 20px 16px; }
+
+  @media (prefers-color-scheme: dark) {
+    html, body, .page, .step, .faq-card, .faq-question, .faq-answer {
+      background-color: #ffffff !important;
+    }
+    .brand-name, .reward-amount, .reward-label { color: #8B1A1A !important; }
+    .section-heading, .step-title, .faq-title, .faq-question { color: #1a1a2e !important; }
+    .section-sub, .step-desc, .faq-answer { color: #888888 !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="brand-name">Hobby Lobby</div>
+  <div class="reward-amount">$500</div>
+  <div class="reward-label">Gift Card Reward</div>
+
+  <!-- SECTION HEADING -->
+  <div class="section-heading">Follow the steps below<br>to receive your reward</div>
+  <p class="section-sub">Complete each step to qualify. Verification is required before your reward is issued.</p>
+
+  <!-- STEPS -->
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Click "Claim Now"</div>
+        <div class="step-desc">Begin by clicking the button below.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Submit Your Info</div>
+        <div class="step-desc">Enter your email and basic details.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Complete Deals</div>
+        <div class="step-desc">Complete 4–5 sponsored offers.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Receive Reward</div>
+        <div class="step-desc">Complete the required steps to claim your $500 Hobby Lobby gift card.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <a href="https://blitzrewarded.com/o/155/879232" target="_blank" rel="noopener" class="cta-btn">
+    Claim Now &nbsp;→
+  </a>
+
+  <!-- FAQ -->
+  <div class="faq-header">
+    <div class="faq-line"></div>
+    <div class="faq-title">Frequently Asked Questions</div>
+    <div class="faq-line"></div>
+  </div>
+
+  <div class="faq-card">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How many deals do I need to complete?
+        <span class="faq-chevron">&#8964;</span>
+      </button>
+      <div class="faq-answer">You need to complete 4 to 5 sponsored deals to qualify. Completing all required offers gives you the chance to receive the reward.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What kind of deals are involved?
+        <span class="faq-chevron">&#8964;</span>
+      </button>
+      <div class="faq-answer">Deals include free trials, app downloads, and special offers from our partners.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        When will I receive my reward?
+        <span class="faq-chevron">&#8964;</span>
+      </button>
+      <div class="faq-answer">Eligible participants receive their reward within 24-48 hours after all requirements are verified.</div>
+    </div>
+  </div>
+
+</div>
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
